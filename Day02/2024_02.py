@@ -7,7 +7,6 @@ def part1(filename="input.txt"):
         lines = f.read().splitlines()
     ans = 0
     return ans
-    
 
 
 def part2(filename="input.txt"):
@@ -16,9 +15,8 @@ def part2(filename="input.txt"):
     ans = 0
     return ans
 
-
 if __name__ == "__main__":
-    day,year = aocd.get_day_and_year()
+    day, year = aocd.get_day_and_year()
     result = subprocess.run(
         ["aocd", f"{year}", f"{day}", "--example"], capture_output=True, text=True
     )
@@ -28,10 +26,10 @@ if __name__ == "__main__":
         sampleData.write("\n".join(trimmed_lines))
     with Path(__file__).with_name("input.txt").open("w") as inputData:
         inputData.write(aocd.get_data(day=day, year=year))
+
     print(part1("sample.txt"))
     print(p1ans := part1())
     print(part2("sample.txt"))
     print(p2ans := part2())
-
     # aocd.submit(p1ans)
     # aocd.submit(p2ans)
