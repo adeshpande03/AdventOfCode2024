@@ -32,9 +32,10 @@ def part2(filename="input.txt"):
     for i in range(len(lines) - len(dont)):
         if lines[i : len(dont) + i] == dont:
             donts.append(i)
+
     def checkidx(dos, donts, idx):
         smallestDo = 0
-        smallestDont = -float('inf')
+        smallestDont = -float("inf")
         for i in donts:
             if i > idx:
                 break
@@ -44,6 +45,7 @@ def part2(filename="input.txt"):
                 break
             smallestDo = i
         return smallestDo > smallestDont
+
     for match in matchidx:
         match, idx = match
         match = match.replace("mul", "").replace("(", "").replace(")", "").split(",")
@@ -71,11 +73,10 @@ if __name__ == "__main__":
     print(p2ans := part2())
 
     if len(sys.argv) > 1:
-        # if sys.argv[1] == '1':
-        #     print(p1ans := part1())
-        #     aocd.submit(p1ans)
+        if sys.argv[1] == "1":
+            print(p1ans := part1())
+            aocd.submit(p1ans)
 
-        # if sys.argv[1] == '2':
-        #     print(p2ans := part2())
-        #     aocd.submit(p2ans)
-        pass
+        if sys.argv[1] == "2":
+            print(p2ans := part2())
+            aocd.submit(p2ans)

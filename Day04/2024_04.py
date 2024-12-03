@@ -2,7 +2,6 @@ from pathlib import Path
 import aocd
 import subprocess
 import sys
-import re
 
 
 def part1(filename="input.txt"):
