@@ -1,7 +1,7 @@
 from pathlib import Path
 import aocd
 import subprocess
-
+import sys
 def part1(filename="input.txt"):
     with Path(__file__).with_name(filename).open("r") as f:
         lines = f.read().splitlines()
@@ -29,11 +29,16 @@ if __name__ == "__main__":
     with Path(__file__).with_name("input.txt").open("w") as inputData:
         inputData.write(aocd.get_data(day=day, year=year))
         
-        
+
     print(part1("sample.txt"))
     print(p1ans := part1())
     print(part2("sample.txt"))
     print(p2ans := part2())
-
-    # aocd.submit(p1ans)
-    # aocd.submit(p2ans)
+    
+    if sys.argv[1] == '1':
+        print(p1ans := part1())
+        aocd.submit(p1ans)
+    
+    if sys.argv[1] == '2':
+        print(p2ans := part2())
+        aocd.submit(p2ans)

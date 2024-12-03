@@ -15,6 +15,7 @@ def part1(filename="input.txt"):
         elif l == list(sorted(l, reverse=True)):
             if all(-1 >= l[i] - l[i - 1] >= -3 for i in range(1, len(l))):
                 ans += 1
+        
     return ans
 
 
@@ -32,9 +33,6 @@ def part2(filename="input.txt"):
                 return 1
     for l in lines:
         l = list(map(int, l.split()))
-        if safe(l):
-            ans += 1
-            continue
         for i in range(len(l)):
             newL = l[:i] + l[i+1:]
             if safe(newL):
